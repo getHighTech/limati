@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import reactLogo from '../../images/react-logo.svg';
-import rekitLogo from '../../images/rekit-logo.svg';
 import * as actions from './redux/actions';
+import { Grid, Image, Icon } from 'semantic-ui-react';
 
 export class DefaultPage extends Component {
   static propTypes = {
@@ -22,7 +20,26 @@ export class DefaultPage extends Component {
           <br/>
           <br/>
           <br/>
+
         </header>
+        <Grid centered columns={4}>
+          <Grid.Column centered>
+            <Icon name='audio description' size='big' />
+            <p>汽车</p>
+          </Grid.Column>
+          <Grid.Column>
+            <Image src='/images/wireframe/image.png' />
+          </Grid.Column>
+          <Grid.Column>
+            <Image src='/images/wireframe/image.png' />
+          </Grid.Column>
+          <Grid.Column>
+            <Image src='/images/wireframe/image.png' />
+          </Grid.Column>
+          <Grid.Column>
+            <Image src='/images/wireframe/image.png' />
+          </Grid.Column>
+        </Grid>
         
       </div>
     );
