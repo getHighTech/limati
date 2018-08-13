@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from './redux/actions';
-import { Button, Segment } from 'semantic-ui-react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Icon, Grid, Button  } from 'semantic-ui-react'
+import {Link} from 'react-router-dom';
 
 export class Layout extends Component {
   static propTypes = {
@@ -15,82 +15,46 @@ export class Layout extends Component {
   render() {
     return (
       <div className="home-layout">
-      <Button.Group attached='top'>
-        <Button>地区:北京</Button>
-        <Button>车联经理联盟</Button>
-        <Button>分享</Button>
-      </Button.Group>
-        <div>
+      <Grid centered padded columns={3}
+         style={{marginBottom: "10px", textAlign: "center", position: "fixed", width: "100%", top: 0, background: "#dec4c4ad", zIndex: 99999}}>
+          <Grid.Column style={{textAlign: 'center'}}>
+          <Icon name='arrow left' size='large' />
+          </Grid.Column>
+          <Grid.Column style={{textAlign: 'center'}}>
+          车联经理联盟
+          </Grid.Column>
+          <Grid.Column style={{textAlign: 'center'}}>
+          <Icon name='search' size='large' />
+          </Grid.Column>
+        </Grid>
+        <div style={{position: "relative", top: "47px"}}>
         {this.props.children}
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          marginBottom: "10px",
-        }}>
-        <Button.Group>
-        <Button>租车</Button>
-        <Button>二手车</Button>
-        <Button>新车</Button>
-        </Button.Group>
-        <Button.Group>
-        <Button>修车</Button>
-        <Button>车险</Button>
-        <Button>一键救援</Button>
-        <Button>开店</Button>
-        </Button.Group>
         </div>
-        <div>
-          <span>热门车型</span>
-          <div>
-          <Card>
-            <Image src='https://image.guazistatic.com/gz01171026/17/04/21cef1447ea70afb7204cd4d274ef07a.png@base@tag=imgScale' />
-            <Card.Content>
-              <Card.Header>车辆卡片</Card.Header>
-              <Card.Meta>
-                <span className='date'>发布时间</span>
-              </Card.Meta>
-              <Card.Description>车简介</Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <a>
-                <Icon name='user' />
-                22 推荐
-              </a>
-            </Card.Content>
-          </Card>
-          </div>
-          <div>
-          <Card>
-            <Image src='https://image.guazistatic.com/gz01171115/17/07/1fab5316dfd667e31e937259d484c992.png@base@tag=imgScale' />
-            <Card.Content>
-              <Card.Header>车辆卡片</Card.Header>
-              <Card.Meta>
-                <span className='date'>发布时间</span>
-              </Card.Meta>
-              <Card.Description>车简介</Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <a>
-                <Icon name='user' />
-                22 推荐
-              </a>
-            </Card.Content>
-          </Card>
-          </div>
-          </div>
-        </div>
-        <div style={{
-          position: "fixed",
-          width: "100% !important",
-          bottom: "0px"
-        }}>
-        <Button.Group attached='top'>
-          <Button>首页</Button>
-          <Button>我的客户</Button>
-          <Button>客服中心</Button>
-          <Button>个人中心</Button>
-        </Button.Group>
-        </div>
+        <Grid centered padded columns={4}
+         style={{textAlign: "center", position: "fixed", width: "100%", bottom: 0}}>
+          <Grid.Column style={{textAlign: 'center'}}>
+          <Link to="/">
+           <Icon name='home' size='big' /><br/>首页
+           </Link>
+          </Grid.Column>
+          <Grid.Column style={{textAlign: 'center'}}>
+          <Link to="/teams">
+           <Icon name='users' size='big' /><br/>我的客户
+          </Link>
+          </Grid.Column>
+          <Grid.Column style={{textAlign: 'center'}}>
+          <Link to="/service">
+           <Icon name='servicestack' size='big' /><br/>客服中心
+           </Link>
+          </Grid.Column>
+          <Grid.Column style={{textAlign: 'center'}}>
+          <Link to="/my">
+           <Icon name='user' size='big' /><br/>我的
+           </Link>
+          </Grid.Column>
+        </Grid>
+       
+       
       </div>
     );
   }
